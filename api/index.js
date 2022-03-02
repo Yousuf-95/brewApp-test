@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 5000;
+const MONGODB = process.env.MONGODB;
 
 console.log(PORT);
 
@@ -57,6 +58,6 @@ app.get('/api/getCards', async (req,res) => {
     }
 });
 
-mongoose.connect('mongodb+srv://admin:9cmMZyHcEHEkzFl9@cluster0.fxw4z.mongodb.net/brewapp', () => console.log('connected to mongoDB Atlas'));
+mongoose.connect(`${MONGODB}`, () => console.log('connected to mongoDB Atlas'));
 
 app.listen(PORT, () => console.log('Server listening on port ' + PORT));
