@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles/firstPage.module.css';
-// import Card from './card';
 import Card from './card';
 
 import { BsFillCheckCircleFill } from 'react-icons/bs';
@@ -12,15 +11,6 @@ import { AiFillFire } from 'react-icons/ai';
 const FirstPage = () => {
 
     let [myCards, setmyCards] = useState([]);
-
-    // useEffect(() => {
-    //     const getCards = async () => {
-    //         const fetchResult = await fetch('/api/getCards');
-    //         const cards = await fetchResult.json();
-    //         setmyCards(cards);
-    //     };
-    //     getCards();
-    // }, []);
 
     useEffect(() => {
         const getCards = async () => {
