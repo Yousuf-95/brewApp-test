@@ -1,6 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const PORT = process.env.PORT || 5000;
 
+console.log(PORT);
 
 const app = express();
 
@@ -16,17 +19,17 @@ const Card = mongoose.model('Card',cardSchema);
 
 
 /* An IIFE to insert a new dummy document */
-// (function insertCard() {
-//     const card = new Card({
-//         title: 'This is the sixth card',
-//         tags: 'xc1,xc2',
-//         imageLink: 'https://nodejs.org/static/images/logo-hexagon-card.png',
-//         numberOfClicks: 1,
-//         dateAdded: Date.now()
-//     });
+(function insertCard() {
+    const card = new Card({
+        title: 'This is the second card',
+        tags: 'xc1,xc2',
+        imageLink: 'https://nodejs.org/static/images/logo-hexagon-card.png',
+        numberOfClicks: 5,
+        dateAdded: Date.now()
+    });
 
-//     card.save();
-// })();
+    card.save();
+})();
 
 
 app.get('/api/getCards', async (req,res) => {
@@ -54,6 +57,6 @@ app.get('/api/getCards', async (req,res) => {
     }
 });
 
-mongoose.connect('mongodb://127.0.0.1:27017/brewapp', () => console.log('connected to mongoDB local server'));
+mongoose.connect('mongodb+srv://admin:9cmMZyHcEHEkzFl9@cluster0.fxw4z.mongodb.net/brewapp', () => console.log('connected to mongoDB Atlas'));
 
-app.listen(3001, () => console.log('Server listening on port 3001'));
+app.listen(PORT, () => console.log('Server listening on port ' + PORT));

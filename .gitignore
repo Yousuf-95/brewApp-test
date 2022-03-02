@@ -6,6 +6,8 @@
 /frontend/.pnp
 /frontend/.pnp.js
 /api/node_modules
+/api/.env
+/api/Procfile
 
 # testing
 /frontend/coverage

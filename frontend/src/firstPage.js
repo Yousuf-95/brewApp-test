@@ -24,7 +24,7 @@ const FirstPage = () => {
 
     useEffect(() => {
         const getCards = async () => {
-            const fetchResult = await fetch('api/getCards');
+            const fetchResult = await fetch('https://fierce-bastion-54100.herokuapp.com/api/getCards');
             const cards = await fetchResult.json();
             // console.table(cards);
             setmyCards(cards)
@@ -34,7 +34,7 @@ const FirstPage = () => {
 
     const handleClick = async (e, sortby) => {
 
-        const fetchResult = await fetch('api/getCards/?sortby=' + sortby);
+        const fetchResult = await fetch('https://fierce-bastion-54100.herokuapp.com/api/getCards/?sortby=' + sortby);
         const cards = await fetchResult.json();
         setmyCards(cards);
     };
